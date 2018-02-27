@@ -1,9 +1,10 @@
 * {
-	margin: 0;
-	box-sizing: border-box;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 body {
-	position: relative;
+    position: relative;
     overflow: hidden;
     max-height: 100vh;
     max-width: 100vw;
@@ -17,9 +18,15 @@ p {
     left: 0;
     font-size: 24px;
     padding: 10px 20px;
-    animation: textAnimation 2s 3s;
-    animation-fill-mode: forwards;
+    -webkit-animation: textAnimation 2s 3s;
+            animation: textAnimation 2s 3s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
     z-index: -1;
+}
+@-webkit-keyframes textAnimation {
+    0% {top: 100vh;}
+    100% {top: 202px;}
 }
 @keyframes textAnimation {
     0% {top: 100vh;}
@@ -32,30 +39,48 @@ span {
     font-size: 50px;
 }
 #left {
-	position: absolute;
-	top: 0;
-	left: calc(100vw - 1725vh/36);
-	height: 100vh;
-	width: calc(1725vh/36);
+    position: absolute;
+    top: 0;
+    left: calc(100vw - 1725vh/36);
+    height: 100vh;
+    width: calc(1725vh/36);
     opacity: 0.5;
-	animation: slideFromTop 3s;
-	transition: left 2s;
+    -webkit-animation: slideFromTop 3s;
+            animation: slideFromTop 3s;
+    -webkit-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
 }
 #right {
-	position: absolute;
-	top: 0;
-	left: 100vw;
-	height: 100vh;
-	width: calc(175vh/4);
+    position: absolute;
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: calc(175vh/4);
     opacity: 0.5;
-	animation: slideFromBottom 3s;
-	transition: left 2s;
+    -webkit-animation: slideFromBottom 3s;
+            animation: slideFromBottom 3s;
+    -webkit-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
+}
+@-webkit-keyframes slideFromTop {
+    0% {top: -100vh; left: calc(50vw - 275vh/6);}
+    50% {top: 0; left: calc(50vw - 275vh/6);}
+    75% {top: 0; left: calc(100vw - 275vh/12);}
+    100% {top: 0; left: calc(100vw - 1725vh/36);}
 }
 @keyframes slideFromTop {
     0% {top: -100vh; left: calc(50vw - 275vh/6);}
     50% {top: 0; left: calc(50vw - 275vh/6);}
     75% {top: 0; left: calc(100vw - 275vh/12);}
     100% {top: 0; left: calc(100vw - 1725vh/36);}
+}
+@-webkit-keyframes slideFromBottom {
+    0% {top: 100vh; left: calc(50vw + 75vh/36);}
+    50% {top: 0; left: calc(50vw + 75vh/36);}
+    75% {top: 0; left: calc(100vw + 900vh/36);}
+    100% {top: 0; left: 100vw;}
 }
 @keyframes slideFromBottom {
     0% {top: 100vh; left: calc(50vw + 75vh/36);}
@@ -64,28 +89,45 @@ span {
     100% {top: 0; left: 100vw;}
 }
 #pic:hover #left {
-	left: calc(100vw - 5025vh/72);
+    left: calc(100vw - 5025vh/72);
 }
 #pic:hover #right {
-	left: calc(100vw - 175vh/8);
+    left: calc(100vw - 175vh/8);
 }
 @media screen and (orientation: landscape) {
     
     p {
         width: 300px;
     }
+    @-webkit-keyframes textAnimation {
+        0% {top: 100vh; left: 100vw; -webkit-transform:rotate(0deg); transform:rotate(0deg);}
+        100% {top: calc(50vh - 93px); left: calc(50vw - 1725vh/72 - 75px); -webkit-transform:rotate(360deg); transform:rotate(360deg);}
+    }
     @keyframes textAnimation {
-        0% {top: 100vh; left: 100vw; transform:rotate(0deg);}
-        100% {top: calc(50vh - 93px); left: calc(50vw - 1725vh/72 - 75px); transform:rotate(360deg);}
+        0% {top: 100vh; left: 100vw; -webkit-transform:rotate(0deg); transform:rotate(0deg);}
+        100% {top: calc(50vh - 93px); left: calc(50vw - 1725vh/72 - 75px); -webkit-transform:rotate(360deg); transform:rotate(360deg);}
     }
 }
 @media screen and (min-width: 661px) {
+    
+    @-webkit-keyframes slideFromTop {
+        0% {top: -100vh; left: calc(100vw - 1725vh/36 - 175vh/4);}
+        50% {top: 0; left: calc(100vw - 1725vh/36 - 175vh/4);}
+        75% {top: 0; left: calc(100vw - 275vh/12);}
+        100% {top: 0; left: calc(100vw - 1725vh/36);}
+    }
     
     @keyframes slideFromTop {
         0% {top: -100vh; left: calc(100vw - 1725vh/36 - 175vh/4);}
         50% {top: 0; left: calc(100vw - 1725vh/36 - 175vh/4);}
         75% {top: 0; left: calc(100vw - 275vh/12);}
         100% {top: 0; left: calc(100vw - 1725vh/36);}
+    }
+    @-webkit-keyframes slideFromBottom {
+        0% {top: 100vh; left: calc(100vw - 175vh/4);}
+        50% {top: 0; left: calc(100vw - 175vh/4);}
+        75% {top: 0; left: calc(100vw + 900vh/36);}
+        100% {top: 0; left: 100vw;}
     }
     @keyframes slideFromBottom {
         0% {top: 100vh; left: calc(100vw - 175vh/4);}
