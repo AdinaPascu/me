@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    color: darkslategray;
+}
+#main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+#main div {
+    margin: 10px 20px;
+}
+#main div div {
+    width: 80px;
+    height: 80px;
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0,0);
+    transition: 0.5s;
+    box-shadow: -20px 20px 10px rgba(0,0,0,0.5);  
+    background-color: #dfecec;  
+}
+#main div div:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    transition: 0.5s;
+    transform: rotate(0deg) skewY(-45deg);
+    background-color: #919c9c;
+}
+#main div div:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    transition: 0.5s;
+    transform: rotate(0deg) skewX(-45deg);
+    background-color: #b3c3c3;
+}
+#main div div:hover {
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px , -20px);
+    box-shadow: -50px 50px 50px rgba(0,0,0,0.5);
+}
+#facebook {
+    background-image: url(img/facebook1.png);
+    background-size: 80px 80px;
+}
+#instagram {
+    background-image: url(img/instagram1.png);
+    background-size: 80px 80px;
+}
+#linkdin {
+    background-image: url(img/linkdin1.png);
+    background-size: 80px 80px;
+}
+#github {
+    background-image: url(img/github1.png);
+    background-size: 80px 80px;
+}
+#main div:hover:nth-child(1) #facebook {
+    background-image: url(img/facebook.png)
+}
+#main div:hover:nth-child(1) #facebook:before {
+    background-color: #293e69;
+}
+#main div:hover:nth-child(1) #facebook:after {
+    background-color: #28488a;
+}
+#main div:hover:nth-child(2) #instagram {
+    background-image: url(img/instagram.png)
+}
+#main div:hover:nth-child(2) #instagram:before {
+    background-image: url(img/instaleft.png);
+    background-size: 20px 100%;
+}
+#main div:hover:nth-child(2) #instagram:after {
+    background-image: url(img/instabottom.png);
+    background-size: 100% 20px;
+}
+#main div:hover:nth-child(3) #github {
+    background-image: url(img/github.png)
+}
+#main div:hover:nth-child(4) #linkdin {
+    background-image: url(img/linkdin.png)
+}
+#main div:hover:nth-child(4) #linkdin:before {
+    background-color: #036aa0;
+    
+}
+#main div:hover:nth-child(4) #linkdin:after {
+    background-color: #0d82bf;
+}
+
+
+@media screen and (min-width: 748px) {
+    #main {
+        flex-flow: row;
+    }
+    #main div {
+        margin: 0 40px;
+    }
+
+}

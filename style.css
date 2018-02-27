@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    color: #2f4f4f;
+}
+
+p {
+    position: relative;
+    width: 170px;
+    top: 100vh;
+    left: 0;
+    font-size: 24px;
+    padding: 10px 20px;
+    animation: textAnimation 2s 3s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+@keyframes textAnimation {
+    0% {top: 100vh;}
+    100% {top: 202px;}
+}
+span {
+    color: #66CD00;
+}
+#bigger {
+    font-size: 50px;
+}
+#left {
+	position: absolute;
+	top: 0;
+	left: calc(100vw - 1725vh/36);
+	height: 100vh;
+	width: calc(1725vh/36);
+    opacity: 0.5;
+	animation: slideFromTop 3s;
+	transition: left 2s;
+}
+#right {
+	position: absolute;
+	top: 0;
+	left: 100vw;
+	height: 100vh;
+	width: calc(175vh/4);
+    opacity: 0.5;
+	animation: slideFromBottom 3s;
+	transition: left 2s;
+}
+@keyframes slideFromTop {
+    0% {top: -100vh; left: calc(50vw - 275vh/6);}
+    50% {top: 0; left: calc(50vw - 275vh/6);}
+    75% {top: 0; left: calc(100vw - 275vh/12);}
+    100% {top: 0; left: calc(100vw - 1725vh/36);}
+}
+@keyframes slideFromBottom {
+    0% {top: 100vh; left: calc(50vw + 75vh/36);}
+    50% {top: 0; left: calc(50vw + 75vh/36);}
+    75% {top: 0; left: calc(100vw + 900vh/36);}
+    100% {top: 0; left: 100vw;}
+}
+#pic:hover #left {
+	left: calc(100vw - 5025vh/72);
+}
+#pic:hover #right {
+	left: calc(100vw - 175vh/8);
+}
+@media screen and (orientation: landscape) {
+    
+    p {
+        width: 300px;
+    }
+    @keyframes textAnimation {
+        0% {top: 100vh; left: 100vw; transform:rotate(0deg);}
+        100% {top: calc(50vh - 93px); left: calc(50vw - 1725vh/72 - 75px); transform:rotate(360deg);}
+    }
+}
+@media screen and (min-width: 661px) {
+    
+    @keyframes slideFromTop {
+        0% {top: -100vh; left: calc(100vw - 1725vh/36 - 175vh/4);}
+        50% {top: 0; left: calc(100vw - 1725vh/36 - 175vh/4);}
+        75% {top: 0; left: calc(100vw - 275vh/12);}
+        100% {top: 0; left: calc(100vw - 1725vh/36);}
+    }
+    @keyframes slideFromBottom {
+        0% {top: 100vh; left: calc(100vw - 175vh/4);}
+        50% {top: 0; left: calc(100vw - 175vh/4);}
+        75% {top: 0; left: calc(100vw + 900vh/36);}
+        100% {top: 0; left: 100vw;}
+    }
+    
+}

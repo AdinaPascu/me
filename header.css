@@ -1,0 +1,51 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 1;
+}
+header > div {
+    display: flex;
+    justify-content: space-between;
+}
+header > div > img {
+    height: 50px;
+}
+#menu {
+    cursor: pointer;
+}
+nav {
+    flex-flow: column;
+    align-items: center;
+}
+nav.show {
+    display: flex;
+}
+nav.hide {
+    display: none;
+}
+nav div {
+    padding: 20px;
+}
+nav div:hover, nav div:active {
+    color: #66CD00;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 661px) {
+    header {
+        flex-flow: row;
+        align-items: center;
+    }
+    #menu {
+        display: none;
+    }
+    nav.hide {
+        display: flex;
+        flex-flow: row;
+    }
+}
